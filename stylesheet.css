@@ -1,0 +1,253 @@
+body{
+        background-color: #1e212d;
+        color: #e7e6e1;
+        font-family: 'Quicksand', sans-serif;
+}
+
+table{
+        border-collapse: collapse;
+        text-align:center;
+}
+.firstLine th{
+        border-bottom: 0.5px solid white;
+        padding-bottom:1px;
+}
+tr{
+        padding-bottom:1px;
+}
+
+.headerrow{
+        height:30px;
+        padding-bottom:10px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+}
+
+.logoimg{
+        position:relative;
+        height:100%;
+}
+
+.swithcont{
+        height:30px;
+}
+
+.tablistcont{
+        width:100%;
+        background-color: #262d47;
+}
+
+#sortbt{
+        border-radius: 4px;
+        border: 10px 10px;
+        background: rgb(172, 170, 170);
+}
+#scheduleclose{
+        background:rgb(172, 170, 170);
+}
+
+p{
+        font-weight: bold;
+        color: black;
+}
+
+.hide{
+        display:none;
+}
+
+.headerow{
+        position: absolute;
+        display:inline;
+        font-size: medium;
+}
+
+.logo{
+        width:30px;
+        height:30px;
+        margin-left: 28px;
+}
+
+#tablist{
+        width:100%;
+        table-layout:fixed;
+        border: black 1px;
+        padding-top: 10px;
+}
+
+td {
+        overflow:hidden;
+        white-space:nowrap;
+}
+
+tr{
+        border-top:1px black;
+}
+
+.tabname{
+        width: 150px;
+}
+
+.tabmem{
+        width: 30px;
+        padding-left:30px;
+
+}
+
+.clock{
+        width:10px;
+        max-width:10px;
+        columns: grey;
+}
+
+.clockimg{
+        width:10px;
+        max-width:10px;
+
+}
+
+.h30{
+        height:30px;
+}
+
+
+
+
+.timein {
+        max-height:50px;
+        padding-top:10;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 18px;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+}
+
+svg {
+        display: none;
+}
+
+.tabber {
+        position: relative;
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+        margin-top:15px;
+
+}
+
+.tabber label {
+        user-select: none;
+        padding: 0.5rem;
+        cursor: pointer;
+        will-change: transform;
+        transform: translateZ(0px);
+        transition: transform 125ms ease-in-out, filter 125ms ease-in-out;
+}
+
+.tabber label:hover {
+        transform: scale(1.15);
+}
+
+.tabber input[type="radio"] {
+        display: none;
+}
+
+.tabber input[type="radio"]#t1 ~ .blob {
+        transform-origin: right center;
+}
+
+.tabber input[type="radio"]#t2 ~ .blob {
+        transform-origin: left center;
+}
+
+.tabber input[type="radio"]#t1:checked ~ .blob {
+        background: cornflowerblue;
+        animation-name: stretchyRev;
+}
+
+.tabber input[type="radio"]#t2:checked ~ .blob {
+        background-color: skyblue;
+        animation-name: stretchy;
+}
+
+.tabber .blob {
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        border-radius: 4rem;
+        animation-duration: .5s;
+        animation-direction: forwards;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        transition: transform 150ms ease, background 150ms ease;
+        filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1"><defs><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" /><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" /><feComposite in="SourceGraphic" in2="goo" operator="atop"/></filter></defs></svg>#goo');
+}
+
+.tabber .blob:before, .tabber .blob:after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        background-color: inherit;
+        height: 100%;
+        width: 50%;
+        border-radius: 100%;
+        transform: scale(1.15);
+        transition: transform 150ms ease;
+        animation-name: pulse;
+        animation-duration: .5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+}
+
+.tabber .blob:before {
+        left: 0;
+        animation-delay: .15s;
+}
+
+.tabber .blob:after {
+        right: 0;
+}
+
+@keyframes stretchy {
+        0% {
+                transform: translateX(0) scaleX(1);
+        }
+
+        50% {
+                transform: translateX(0) scaleX(2);
+        }
+
+        100% {
+                transform: translateX(100%) scaleX(1);
+        }
+}
+
+@keyframes stretchyRev {
+        0% {
+                transform: translateX(100%) scaleX(1);
+        }
+
+        50% {
+                transform: translateX(0) scaleX(2);
+        }
+
+        100% {
+                transform: translateX(0) scaleX(1);
+        }
+}
+
+@keyframes pulse {
+        0%, 50% {
+                transform: scaleX(1);
+        }
+
+        25%, 75% {
+                transform: scaleX(1.5);
+        }
+}
